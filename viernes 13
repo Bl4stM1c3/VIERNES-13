@@ -1,0 +1,32 @@
+#POSIBLE SOLUCION AL EJERICICO 65 DE https://retosdeprogramacion.com/ejercicios/
+# Crea una función que sea capaz de detectar si existe un viernes 13
+# * en el mes y el año indicados.
+# * - La función recibirá el mes y el año y retornará verdadero o falso.
+
+import calendar
+
+año = 1984
+mes = 1
+
+def viernes_13(mes, año):
+    #Declaramos variables
+    calendario = {
+        1:'Enero', 2:'Febrero', 3:'Marzo', 4:'Abril', 5:'Mayo', 6:'Junio',
+        7:'Julio', 8:'Agosto', 9:'Septiembre', 10:'Octubre', 11:'Noviembre', 12:'Diciembre'
+    }
+    
+    #Mostramos el calendario del mes por pantalla
+    calendario_mes = calendar.month(año, mes)
+    print(calendario_mes)
+    
+    #Hacemos una lista con todos los viernes y comprobanos si alguno fue 13
+    viernes = [semana[4] for semana in calendar.monthcalendar(año, mes)]  
+            
+    if 13 in viernes:
+        return f"El mes {calendario[mes]} del año {año} tuvo viernes 13"
+    else:
+        return f"El mes {calendario[mes]} del año {año} NO tuvo viernes 13"
+        
+
+    
+viernes_13(12,1984)
